@@ -1,7 +1,7 @@
 <?php
 
 // Da Vinci network EDUROAM does not work.
-// ICT Academy network ICTA-WLAB works.
+// ICT Academy network ICTA-WLAB 
 
 echo "<h1>Installation</h1>";
 echo "Before running this page, install phpmailer";
@@ -18,10 +18,10 @@ require __DIR__ . '/vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 $mail             = new PHPMailer();
 
 $body             = file_get_contents('contents.html');
-$body             = eregi_replace("[\]",'',$body);
+$body             = eregi_replace("/[\]/i",'',$body);
 
 $mail->IsSMTP(); // telling the class to use SMTP
-$mail->SMTPDebug  = 1;                     // enables SMTP debug information (for testing)
+$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
                                            // 1 = errors and messages
                                            // 2 = messages only
 $mail->SMTPAuth   = true;                  // enable SMTP authentication
